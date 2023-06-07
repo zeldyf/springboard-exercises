@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Ratings</title>
+    <style>
+      h1 {
+        margin: 10 auto;
+        text-align: center;
+      }
+      form {
+        margin: 0 auto;
+        align-items: center;
+      }
+      form input {
+        margin-right: 15px;
+      }
+      table {
+        margin: 0 auto;
+        margin-top: 10px;
+        color: #333;
+        background: white;
+        border: 1px solid grey;
+        font-size: 12pt;
+        border-collapse: collapse;
+      }
+      table thead th,
+      table th {
+        color: #777;
+        background: rgba(0, 0, 0, 0.1);
+      }
+      table caption {
+        font-size: larger;
+        font-weight: 600;
+        padding: 0.5em;
+      }
+      table th,
+      table td {
+        padding: 0.5em;
+        border: 1px solid lightgrey;
+        width: 5%;
+      }
+
+    </style>
+  </head>
+  <body>
+    <h1>Movie Ratings</h1>
+    <form action="">
+      <label for="title">Movie Title</label>
+      <input type="text" id="title" />
+      <label for="rating">Movie Rating</label>
+      <input type="number" id="rating" name="Rating" min="0" max="10" />
+      <input id="submit" type="submit" />
+    </form>
+    <table class="results-table">
+      <caption>
+        My Movie Ratings
+      </caption>
+      <thead>
+        <tr>
+          <th class="movie-clm-1">Movie</th>
+          <th class="rating-clm-2">Rating</th>
+          <th class="delete-clm-3">Delete</th>
+        </tr>
+      </thead>
+    </table>
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.min.js"
+      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      const $resultsTable = $("table");
+
+      $("#submit").on("click", function (e) {
+        e.preventDefault();
+        const $movieTitle = $("#title").val();
+        const $rating = $("#rating").val();
+        const toAppend = makeNewRow($movieTitle, $rating);
+        $resultsTable.append(toAppend);
+        $("form").trigger("reset");
+      });
+
+      $("table").on("click", ".remove", function (e) {
+        $(e.target).closest("tr").remove();
+      });
+
+      function makeNewRow(title, rating) {
+        return `
+      <tr>
+        <td>${title}</td>
+        <td>${rating}</td>
+        <td>
+          <button class='remove'>X</button>
+          </td>
+        </tr>
+      `;
+      }
+    </script>
+  </body>
+</html>
