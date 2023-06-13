@@ -1,0 +1,27 @@
+1. What is HTTP?
+HTTP is the protocol for sending and receiving content over the internet. 
+
+2. What is a URL?
+A URL contains the hostname, port, and path representing the data you are trying to retrieve.
+
+3. What is DNS?
+DNS is the service that identifies the IP address of the host that you are trying to connect to
+
+4. What is a query string?
+A query string is a parameter that lets that server know what specific data to return from the server
+
+5. GET and POST are two different HTTP methods. They are different because GET is used to retrieve data but not to manipulate data in the server. POST is used to send changes to the server.
+
+6. An HTTP request is a communication to a server via a browser for some data or content
+
+7. An HTTP response is the response from the server to the browser
+
+8. An HTTP header is a specification that lets the server know how you would like the information return, for example, in what spoken language or what technical language the content should be delivered.
+
+9. What are the processes that happen when you type “http://somesite.com/some/page.html” into a browser?
+1- The browser begins by parsing the URL into different components: the protocol (in this case, "http"), the domain or hostname ("somesite.com"), and the path ("/some/page.html").
+2- In order to find the IP address associated with the domain name "somesite.com," the browser sends a request to a DNS server which looks up the IP address. The browser now establishes a connection with the server hosting the site, using the HTTP protocol.
+3- The browser sends an HTTP request to the server, specifically to the path "/some/page.html" on the server, telling the server to retrieve the web page.
+4- The server receives the request and processes it. It locates the requested file ("page.html") and prepares a response to send back to the browser.
+5- The browser receives the server's response, including the HTML content of the web page and any additional resources such as CSS stylesheets, JavaScript files, images, etc., which are needed to render the page correctly.
+6- The browser interprets the received HTML, along with any additional resources, and renders the web page on your screen. This process involves parsing the HTML structure, applying styles, executing JavaScript code, and displaying the final result.
